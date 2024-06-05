@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông báo đặt hàng thành công</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            flex-direction: column;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .send-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .send-button:hover {
+            background-color: #45a049;
+        }
+        #order-success {
+            display: none;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
+            position: fixed;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: top 0.5s;
+        }
+        #order-success.show {
+            top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-group">
+        <button id="submitBtn" type="submit" class="send-button">Gửi tin nhắn</button>
+    </div>
+    <div id="order-success" class="hidden">
+        <p>Bạn đã đặt hàng thành công!</p>
+    </div>
+
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            var notification = document.getElementById('order-success');
+            notification.classList.add('show');
+            notification.style.display = 'block';
+            setTimeout(function() {
+                notification.classList.remove('show');
+                notification.style.display = 'none';
+            }, 3000); // Ẩn thông báo sau 3 giây
+        });
+    </script>
+
+</body>
+</html>
