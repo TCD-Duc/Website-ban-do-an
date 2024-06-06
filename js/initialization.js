@@ -560,6 +560,31 @@ function createProduct() {
             price: 100000,
             desc: 'Dâu tây ăn nguyên quả ngon ngọt, có cả quả dôn dốt chua, màu đỏ mọng trông cực yêu. Không chỉ ngon miệng mà đồ uống từ dâu tây còn có công dụng bảo vệ sức khỏe, sáng mắt, đẹp da, thon gọn vóc dáng. Làm giảm nguy cơ mắc bệnh về mỡ máu, chống viêm,…'
         },
+        {
+            id: 61,
+            status: 1, 
+            img: './assets/img/products/lau-man-ca-linh.jpg', 
+        },
+        {
+            id: 62,
+            status: 1, 
+            img: './assets/img/products/tra-sua-bac-ha.jpg', 
+        },
+        {
+            id: 63,
+            status: 1, 
+            img: './assets/img/products/tra-sua-caramen.jpg', 
+        },
+        {
+            id: 64,
+            status: 1, 
+            img: './assets/img/products/tra-sua-khoai-mon.jpg', 
+        },
+        {
+            id: 65,
+            status: 1, 
+            img: './assets/img/products/tra-sua-oreo-cake-cream.jpg', 
+        },
         ]
         localStorage.setItem('products', JSON.stringify(products));
     }
