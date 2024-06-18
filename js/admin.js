@@ -23,13 +23,13 @@ menuIconButton.addEventListener("click", () => {
 });
 
 // log out admin user
-/*
-let toogleMenu = document.querySelector(".profile");
-let mune = document.querySelector(".profile-cropdown");
-toogleMenu.onclick = function () {
-    mune.classList.toggle("active");
-};
-*/
+
+// let toogleMenu = document.querySelector(".profile");
+// let mune = document.querySelector(".profile-cropdown");
+// toogleMenu.onclick = function () {
+//     mune.classList.toggle("active");
+// };
+
 
 // Tạo tab cho các section
 const sidebars = document.querySelectorAll(".sidebar-list-item.tab-content");
@@ -265,7 +265,7 @@ btnUpdateProductIn.addEventListener("click", (e) => {
     let categoryProduct = products[indexCur].category;
     let imgProductCur = getPathImage(document.querySelector(".upload-image-preview").src)
     let titleProductCur = document.getElementById("ten-mon").value;
-    let curProductCur = document.getElementById("gia-moi").value;
+    let curProductCur = document.getElementById("gia-moi").value; 
     let descProductCur = document.getElementById("mo-ta").value;
     let categoryText = document.getElementById("chon-mon").value;
 
@@ -296,15 +296,37 @@ btnAddProductIn.addEventListener("click", (e) => {
     e.preventDefault();
     let imgProduct = getPathImage(document.querySelector(".upload-image-preview").src)
     let tenMon = document.getElementById("ten-mon").value;
-    let price = document.getElementById("gia-moi").value;
+    let price = document.getElementById("gia-moi").value; 
     let moTa = document.getElementById("mo-ta").value;
     let categoryText = document.getElementById("chon-mon").value;
+    // if(tenMon == "" || price == "" || moTa == "") {
+    //     toast({ title: "Chú ý", message: "Vui lòng nhập đầy đủ thông tin món!", type: "warning", duration: 3000, });
+    // } else {
+    //     if(isNaN(price)) {
+    //         toast({ title: "Chú ý", message: "Giá phải ở dạng số!", type: "warning", duration: 3000, });
+    //     } else {
+    //         let products = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : [];
+    //         let product = {
+    //             id: createId(products),
+    //             title: tenMon,
+    //             img: imgProduct,
+    //             category: categoryText,
+    //             price: price,
+    //             desc: moTa,
+    //             status:1
+    //         };
+    //         products.unshift(product);
+    //         localStorage.setItem("products", JSON.stringify(products));
+    //         showProduct();
+    //         document.querySelector(".add-product").classList.remove("open");
+    //         toast({ title: "Success", message: "Thêm sản phẩm thành công!", type: "success", duration: 3000});
+    //         setDefaultValue();
+    //     }
+    // }
+
     if(tenMon == "" || price == "" || moTa == "") {
         toast({ title: "Chú ý", message: "Vui lòng nhập đầy đủ thông tin món!", type: "warning", duration: 3000, });
     } else {
-        if(isNaN(price)) {
-            toast({ title: "Chú ý", message: "Giá phải ở dạng số!", type: "warning", duration: 3000, });
-        } else {
             let products = localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : [];
             let product = {
                 id: createId(products),
@@ -314,20 +336,22 @@ btnAddProductIn.addEventListener("click", (e) => {
                 price: price,
                 desc: moTa,
                 status:1
-            };
+            		};
             products.unshift(product);
             localStorage.setItem("products", JSON.stringify(products));
             showProduct();
             document.querySelector(".add-product").classList.remove("open");
             toast({ title: "Success", message: "Thêm sản phẩm thành công!", type: "success", duration: 3000});
             setDefaultValue();
-        }
     }
 });
 
 document.querySelector(".modal-close.product-form").addEventListener("click",() => {
     setDefaultValue();
 })
+
+
+
 
 function setDefaultValue() {
     document.querySelector(".upload-image-preview").src = "./assets/img/blank-image.png";
@@ -914,4 +938,6 @@ document.getElementById("logout-acc").addEventListener('click', (e) => {
     e.preventDefault();
     localStorage.removeItem("currentuser");
     window.location = "index.html";
+
 })
+
